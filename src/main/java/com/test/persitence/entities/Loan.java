@@ -11,7 +11,7 @@ public class Loan
     private long amount;
     @ManyToOne
     @JoinColumn(name = "account_id")
-    private Optional<Account> account;
+    private Account account;
 
     @Column(name = "loan_state")
     @Enumerated(EnumType.STRING)
@@ -25,11 +25,11 @@ public class Loan
         this.amount = amount;
     }
 
-    public Optional<Account> getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(Optional<Account> account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 

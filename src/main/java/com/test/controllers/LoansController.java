@@ -33,9 +33,12 @@ public class LoansController
 
         Loan loanEntity = new Loan();
         Optional<Account> account = accountRepository.findById(loanDTO.getAccountId());
-        loanEntity.setAccount(account);
-        loanEntity.setLoanState(loanDTO.getLoanState());
-        loanEntity.setAmount(loanDTO.getAmount());
+        if(account.isPresent())
+        {
+            loanEntity.setAccount(account.get());
+            loanEntity.setLoanState(loanDTO.getLoanState());
+            loanEntity.setAmount(loanDTO.getAmount());
+        }
 
         loanRepository.save(loanEntity);
         return "Saved";
