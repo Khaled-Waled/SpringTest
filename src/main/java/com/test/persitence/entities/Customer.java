@@ -1,6 +1,7 @@
 package com.test.persitence.entities;
 
 
+import com.test.dto.CustomerDTO;
 import com.test.enums.CustomerType;
 
 import javax.persistence.*;
@@ -33,12 +34,12 @@ public class Customer
     @Enumerated(EnumType.STRING)
     CustomerType customerType;
 
-    public long getId()
+    public Long getId()
     {
         return id;
     }
 
-    public void setId(long id)
+    public void setId(Long id)
     {
         this.id = id;
     }
@@ -96,6 +97,15 @@ public class Customer
     public String getPhone()
     {
         return phone;
+    }
+
+    public void getFromDTO(CustomerDTO customerDTO)
+    {
+        this.setFirstName(customerDTO.getfName());
+        this.setLastName(customerDTO.getlName());
+        this.setCustomerType(customerDTO.getCustomerType());
+        this.setAddress(customerDTO.getAddress());
+        this.setBirthDate(customerDTO.getBirthDate());
     }
 
     public void setPhone(String phone)

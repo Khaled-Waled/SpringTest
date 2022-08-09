@@ -5,8 +5,14 @@ import com.test.enums.LoanState;
 import javax.persistence.*;
 import java.util.Optional;
 
+@Table(name = "loans")
+@Entity
 public class Loan
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @Column(name = "amount")
     private long amount;
     @ManyToOne
@@ -16,6 +22,16 @@ public class Loan
     @Column(name = "loan_state")
     @Enumerated(EnumType.STRING)
     private LoanState loanState;
+
+    public Long getId()
+    {
+        return id;
+    }
+
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
 
     public long getAmount() {
         return amount;
