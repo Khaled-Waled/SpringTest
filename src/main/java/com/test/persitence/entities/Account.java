@@ -21,7 +21,7 @@ public class Account
     private AccountType accountType;
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Optional<Customer> customer;
+    private Customer customer;
 
     public Long getId()
     {
@@ -43,12 +43,12 @@ public class Account
         this.balance = balance;
     }
 
-    public Optional<Customer> getCustomer()
+    public Customer getCustomer()
     {
         return customer;
     }
 
-    public void setCustomer(Optional<Customer> customer)
+    public void setCustomer(Customer customer)
     {
         this.customer = customer;
     }

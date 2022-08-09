@@ -35,8 +35,13 @@ public class AccountController
         Account accountEntity = new Account();
         accountEntity.setId(accountDTO.getId());
         Optional<Customer> customer = customerRepository.findById(accountDTO.getCustomerID());
-        accountEntity.setCustomer(customer);
-        accountEntity.setBalance(accountDTO.getBalance());
+
+        if(customer.isPresent())
+        {
+            accountEntity.setCustomer(customer.get());
+            accountEntity.setBalance(accountDTO.getBalance());
+        }
+
 
         accountRepository.save(accountEntity);
         return "Saved";
