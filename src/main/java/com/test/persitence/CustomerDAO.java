@@ -1,7 +1,7 @@
 package com.test.persitence;
 
 import com.test.dto.CustomerDTO;
-import com.test.dto.Loan;
+import com.test.dto.LoanDTO;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -80,7 +80,7 @@ public class CustomerDAO extends DBConnectorOld implements IDAO<CustomerDTO>
             return null;
         }
     }
-    public boolean createLoanProposal(Loan loan)
+    public boolean createLoanProposal(LoanDTO loanDTO)
     {
         Connection connection = null;
         try
@@ -89,9 +89,9 @@ public class CustomerDAO extends DBConnectorOld implements IDAO<CustomerDTO>
             connection = getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,loan.getAccountId());
-            preparedStatement.setLong(2, loan.getAmount());
-            preparedStatement.setString(3,loan.getLoanState());
+            preparedStatement.setLong(1, loanDTO.getAccountId());
+            preparedStatement.setLong(2, loanDTO.getAmount());
+            //preparedStatement.setString(3, loanDTO.getLoanState());
 
             int rows = preparedStatement.executeUpdate();
 

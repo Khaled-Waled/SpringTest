@@ -3,6 +3,7 @@ package com.test.persitence.entities;
 import com.test.enums.AccountType;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Table(name = "accounts")
 @Entity
@@ -20,7 +21,7 @@ public class Account
     private AccountType accountType;
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Optional<Customer> customer;
 
     public Long getId()
     {
@@ -42,12 +43,12 @@ public class Account
         this.balance = balance;
     }
 
-    public Customer getCustomer()
+    public Optional<Customer> getCustomer()
     {
         return customer;
     }
 
-    public void setCustomer(Customer customer)
+    public void setCustomer(Optional<Customer> customer)
     {
         this.customer = customer;
     }

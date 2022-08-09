@@ -2,8 +2,8 @@ package com.test.dto;
 
 public class AccountDTO
 {
-    private int id;
-    private int customerID;
+    private Long id;
+    private Long customerID;
     private long balance;
 
     public long getBalance() {
@@ -14,20 +14,20 @@ public class AccountDTO
         this.balance = balance;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getCustomerID()
+    public Long getCustomerID()
     {
         return customerID;
     }
 
-    public void setCustomerID(int customerID)
+    public void setCustomerID(Long customerID)
     {
         this.customerID = customerID;
     }

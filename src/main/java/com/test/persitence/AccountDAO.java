@@ -23,7 +23,7 @@ public class AccountDAO extends DBConnectorOld implements IDAO<AccountDTO>
                          "VALUES (?,?);";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, accountDTO.getCustomerID());
+            preparedStatement.setLong(1, accountDTO.getCustomerID());
             preparedStatement.setLong(2, accountDTO.getBalance());
 
 
@@ -62,8 +62,8 @@ public class AccountDAO extends DBConnectorOld implements IDAO<AccountDTO>
             while(resultSet.next())
             {
                 AccountDTO accountDTO = new AccountDTO();
-                accountDTO.setId(resultSet.getInt(1));
-                accountDTO.setCustomerID(resultSet.getInt(2));
+                accountDTO.setId(resultSet.getLong(1));
+                accountDTO.setCustomerID(resultSet.getLong(2));
                 accountDTO.setBalance(resultSet.getLong(3));
 
                 accountDTOS.add(accountDTO);
