@@ -1,9 +1,8 @@
 package com.test.controllers;
 
 import com.test.dto.LoanDTO;
-import com.test.persitence.CustomerDAO;
-import com.test.persitence.entities.Account;
-import com.test.persitence.entities.Loan;
+import com.test.entities.Account;
+import com.test.entities.Loan;
 import com.test.repository.AccountRepository;
 import com.test.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;

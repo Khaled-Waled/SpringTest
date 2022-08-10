@@ -1,4 +1,4 @@
-package com.test.persitence.entities;
+package com.test.entities;
 
 
 import com.test.dto.CustomerDTO;

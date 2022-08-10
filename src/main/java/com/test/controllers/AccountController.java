@@ -2,15 +2,13 @@ package com.test.controllers;
 
 import com.test.dto.AccountDTO;
 import com.test.persitence.AccountDAO;
-import com.test.persitence.entities.Account;
-import com.test.persitence.entities.Customer;
+import com.test.entities.Account;
+import com.test.entities.Customer;
 import com.test.repository.AccountRepository;
 import com.test.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController

@@ -1,7 +1,7 @@
 package com.test.service.impl;
 
 import com.test.dto.CustomerDTO;
-import com.test.persitence.entities.Customer;
+import com.test.entities.Customer;
 import com.test.repository.CustomerRepository;
 import com.test.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

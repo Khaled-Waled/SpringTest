@@ -1,6 +1,6 @@
 package com.test.repository;
 
-import com.test.persitence.entities.Account;
+import com.test.entities.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

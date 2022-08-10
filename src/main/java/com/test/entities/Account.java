@@ -1,9 +1,8 @@
-package com.test.persitence.entities;
+package com.test.entities;
 
 import com.test.enums.AccountType;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Table(name = "accounts")
 @Entity
