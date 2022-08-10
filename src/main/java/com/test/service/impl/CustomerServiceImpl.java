@@ -4,6 +4,7 @@ import com.test.dto.CustomerDTO;
 import com.test.entities.Customer;
 import com.test.repository.CustomerRepository;
 import com.test.service.ICustomerService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,16 @@ public class CustomerServiceImpl implements ICustomerService
 {
     @Autowired
     CustomerRepository customerRepository;
+
+    @Autowired
+    ModelMapper modelMapper;
+
+
+    public void saveNewCustomer(CustomerDTO customerDTO)
+    {
+        Customer customerEntity = modelMapper.map(customerDTO,Customer.class);
+        customerRepository.save(customerEntity);
+    }
 
     @Override
     public List<CustomerDTO> getBlockedCustomers()
@@ -39,12 +50,26 @@ public class CustomerServiceImpl implements ICustomerService
                 customerDTO.setBirthDate(customer.getBirthDate());
                 customerDTO.setAddress(customer.getAddress());
                 customerDTO.setPhone(customer.getPhone());
-                customerDTO.setfName(customer.getFirstName());
-                customerDTO.setlName(customer.getLastName());
+                customerDTO.setFirstName(customer.getFirstName());
+                customerDTO.setLastName(customer.getLastName());
 
                 resultCustomers.add(customerDTO);
             }
         }
         return resultCustomers;
+    }
+
+    @Override
+    public List<CustomerDTO> getAllCustomers()
+    {
+        List<Customer> customers = (List<Customer>) customerRepository.findAll();
+        List<CustomerDTO> customerDTOS = new ArrayList<>();
+
+        customers.forEach(customer ->
+        {
+            customerDTOS.add(modelMapper.map(customer,CustomerDTO.class));
+        });
+
+        return customerDTOS;
     }
 }

@@ -8,8 +8,8 @@ import java.util.List;
 public class CustomerDTO
 {
     private long id;
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
 
 
     private String phone;
@@ -29,14 +29,14 @@ public class CustomerDTO
         this.id = id;
     }
 
-    public String getfName()
+    public String getFirstName()
     {
-        return fName;
+        return firstName;
     }
 
-    public void setfName(String fName)
+    public void setFirstName(String firstName)
     {
-        this.fName = fName;
+        this.firstName = firstName;
     }
 
     public String getPhone()
@@ -64,14 +64,14 @@ public class CustomerDTO
         return accountIDs;
     }
 
-    public String getlName()
+    public String getLastName()
     {
-        return lName;
+        return lastName;
     }
 
-    public void setlName(String lName)
+    public void setLastName(String lastName)
     {
-        this.lName = lName;
+        this.lastName = lastName;
     }
 
     public CustomerType getCustomerType()

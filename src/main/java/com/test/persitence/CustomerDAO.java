@@ -23,7 +23,7 @@ public class CustomerDAO extends DBConnectorOld implements IDAO<CustomerDTO>
                          "VALUES(?,?,?)\n";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, customerDTO.getfName());
+            preparedStatement.setString(1, customerDTO.getFirstName());
             preparedStatement.setString(2, customerDTO.getAddress());
             preparedStatement.setString(3, customerDTO.getPhone());
 
@@ -63,7 +63,7 @@ public class CustomerDAO extends DBConnectorOld implements IDAO<CustomerDTO>
             {
                 CustomerDTO customerDTO = new CustomerDTO();
                 customerDTO.setId(resultSet.getInt(1));
-                customerDTO.setfName(resultSet.getString(2));
+                customerDTO.setFirstName(resultSet.getString(2));
                 customerDTO.setPhone(resultSet.getString(3));
                 customerDTO.setAddress(resultSet.getString(4));
 

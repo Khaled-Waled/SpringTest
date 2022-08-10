@@ -12,7 +12,7 @@ public class ConsoleInterface
     public static void main(String[] args)
     {
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setfName("aaaa");
+        customerDTO.setFirstName("aaaa");
         customerDTO.setPhone("123");
         customerDTO.setAddress("streeet 1");
 

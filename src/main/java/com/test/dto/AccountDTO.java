@@ -1,10 +1,14 @@
 package com.test.dto;
 
+import com.test.enums.AccountType;
+
 public class AccountDTO
 {
     private Long id;
     private Long customerID;
     private long balance;
+
+    private AccountType accountType;
 
     public long getBalance() {
         return balance;
@@ -30,5 +34,15 @@ public class AccountDTO
     public void setCustomerID(Long customerID)
     {
         this.customerID = customerID;
+    }
+
+    public AccountType getAccountType()
+    {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType)
+    {
+        this.accountType = accountType;
     }
 }

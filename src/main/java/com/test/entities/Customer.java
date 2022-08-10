@@ -101,8 +101,8 @@ public class Customer
 
     public void getFromDTO(CustomerDTO customerDTO)
     {
-        this.setFirstName(customerDTO.getfName());
-        this.setLastName(customerDTO.getlName());
+        this.setFirstName(customerDTO.getFirstName());
+        this.setLastName(customerDTO.getLastName());
         this.setCustomerType(customerDTO.getCustomerType());
         this.setAddress(customerDTO.getAddress());
         this.setBirthDate(customerDTO.getBirthDate());

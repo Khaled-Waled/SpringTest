@@ -7,4 +7,7 @@ import java.util.List;
 public interface ICustomerService
 {
     public List<CustomerDTO> getBlockedCustomers();
+    public List<CustomerDTO> getAllCustomers();
+
+    void saveNewCustomer(CustomerDTO customerDTO);
 }
