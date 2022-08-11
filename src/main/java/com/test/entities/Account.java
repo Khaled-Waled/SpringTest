@@ -32,12 +32,12 @@ public class Account
         this.id = id;
     }
 
-    public long getBalance()
+    public Long getBalance()
     {
         return balance;
     }
 
-    public void setBalance(long balance)
+    public void setBalance(Long balance)
     {
         this.balance = balance;
     }
@@ -52,4 +52,13 @@ public class Account
         this.customer = customer;
     }
 
+    public AccountType getAccountType()
+    {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType)
+    {
+        this.accountType = accountType;
+    }
 }

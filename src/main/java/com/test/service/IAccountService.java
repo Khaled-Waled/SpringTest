@@ -1,8 +1,11 @@
 package com.test.service;
 
 import com.test.dto.AccountDTO;
+import com.test.entities.Account;
 
 public interface IAccountService
 {
-    public void saveAccount(AccountDTO accountDTO);
+    void saveAccount(AccountDTO accountDTO);
+    Account convertAccountDtoToEntity(AccountDTO source);
+
 }

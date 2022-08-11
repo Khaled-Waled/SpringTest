@@ -3,6 +3,7 @@ package com.test.service.impl;
 import com.test.dto.AccountDTO;
 import com.test.entities.Account;
 import com.test.repository.AccountRepository;
+import com.test.repository.CustomerRepository;
 import com.test.service.IAccountService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,19 @@ public class AccountServiceImpl implements IAccountService
 
     @Autowired
     AccountRepository accountRepository;
+
+    @Autowired
+    CustomerRepository customerRepository;
     public void saveAccount(AccountDTO accountDTO)
     {
-        Account accountEntity = modelMapper.map(accountDTO, Account.class);
+        Account accountEntity = convertAccountDtoToEntity(accountDTO);
         accountRepository.save(accountEntity);
+    }
+
+    public Account convertAccountDtoToEntity(AccountDTO source)
+    {
+        Account account = modelMapper.map(source, Account.class);
+        account.setCustomer(customerRepository.getById(source.getCustomerID()));
+        return account;
     }
 }
