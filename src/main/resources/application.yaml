@@ -15,5 +15,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     generate-ddl: true
-
+app:
+  jwt:
+    secret: secretJWT
 server.port: 8081
