@@ -12,9 +12,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
-public class ApplicationSecurity extends WebSecurityConfigurerAdapter
+public class ApplicationSecurity extends WebSecurityConfigurerAdapter implements WebMvcConfigurer
 {
     @Autowired
     private UserRepository userRepo;
@@ -26,9 +28,10 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests()
-                .antMatchers("/api/authentication/login").permitAll()
+                .antMatchers("/api/authentication/**").permitAll()
                 .anyRequest().authenticated();
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception
@@ -36,7 +39,8 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter
         auth.userDetailsService(
                 username -> userRepo.findByEmail(username)
                         .orElseThrow(
-                                () -> new UsernameNotFoundException("User " + username + " not found.")));
+                                () -> new UsernameNotFoundException("User " + username + " not found.")))
+                                    .passwordEncoder(passwordEncoder());
     }
 
     @Bean
@@ -51,6 +55,11 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter
     public AuthenticationManager authenticationManagerBean() throws Exception
     {
         return super.authenticationManagerBean();
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedMethods("*");
     }
 
 }
